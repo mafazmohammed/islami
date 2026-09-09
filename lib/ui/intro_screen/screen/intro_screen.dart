@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami/core/resources/assets_manager.dart';
 import 'package:islami/core/resources/colors_manager.dart';
+import 'package:islami/core/reusable_components/islami_logo.dart';
 import 'package:islami/ui/intro_screen/widgets/intro_details.dart';
 import 'package:islami/ui/intro_screen/widgets/intro_page_view.dart';
 
@@ -27,10 +28,7 @@ class _IntroScreenState extends State<IntroScreen> {
          crossAxisAlignment: .stretch,
          spacing: 20,
          children: [
-           Container(
-               padding: .only(top: 16),
-               child: Image.asset(AssetsManager.islami_logo,width: 328,)
-           ),
+           IslamiLogo(),
            IntroPageView(
              controller: _pageController,
              onPageChanged: (index) {
