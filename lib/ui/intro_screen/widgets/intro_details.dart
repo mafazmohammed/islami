@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:islami/core/resources/colors_manager.dart';
 import 'package:islami/ui/intro_screen/widgets/intro_bottom_bar.dart';
 
+import '../../../model/page_view_images.dart';
+
 class IntroDetails extends StatefulWidget{
   final PageController controller;
   final int index;
@@ -82,7 +84,14 @@ class _IntroDetailsState extends State<IntroDetails> {
             widget.controller.previousPage(duration: Duration(milliseconds: 1000), curve: Curves.easeInOut);
               },
               onNext: (){
-            widget.controller.nextPage(duration: Duration(milliseconds: 1000), curve: Curves.easeInOut);
+                if (widget.index ==  pageViewImages.length -1) {
+                  Navigator.pushReplacementNamed(context, '/home');
+                } else {
+                  widget.controller.nextPage(
+                    duration: Duration(milliseconds: 1000),
+                    curve: Curves.easeInOut,
+                  );
+                }
               }))
         ],
       ),
