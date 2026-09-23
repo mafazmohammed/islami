@@ -58,25 +58,31 @@ class SuraDetailsUi extends StatelessWidget {
                   ),
                 ),
               ),
-              
+
               Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 47),
-                  child: SingleChildScrollView(
-                    child: Text(
-                      surahVerses,
-                      textAlign: .center,
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: ColorsManager.gold,
-                        fontSize: 20,
-                        fontWeight: .w700,
-                        fontFamily: 'Janna',
-                        height: 2.5,
+                child: surahVerses.isEmpty
+                    ? Center(
+                        child: CircularProgressIndicator(
+                          color: ColorsManager.gold,
+                        ),
+                      )
+                    : Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 47),
+                        child: SingleChildScrollView(
+                          child: Text(
+                            surahVerses,
+                            textAlign: .center,
+                            textDirection: TextDirection.rtl,
+                            style: TextStyle(
+                              color: ColorsManager.gold,
+                              fontSize: 20,
+                              fontWeight: .w700,
+                              fontFamily: 'Janna',
+                              height: 2.5,
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                ),
               ),
             ],
           ),

@@ -11,6 +11,8 @@ class SebhaCounter extends StatefulWidget {
 class _SebhaCounterState extends State<SebhaCounter> {
   int index = 0;
   double rotation = 0;
+  int azkarIndex = 0;
+  final List<String> azkar = ["سبحان الله", "الحمد لله", "الله أكبر"];
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +22,10 @@ class _SebhaCounterState extends State<SebhaCounter> {
           index++;
           if (index > 33) {
             index = 0;
+            azkarIndex++;
+          }
+          if (azkarIndex >= azkar.length) {
+            azkarIndex = 0;
           }
           rotation += 0.5;
         });
@@ -40,7 +46,7 @@ class _SebhaCounterState extends State<SebhaCounter> {
               Column(
                 children: [
                   Text(
-                    "سبحان الله",
+                    azkar[azkarIndex],
                     style: TextStyle(
                       color: ColorsManager.whiteColor,
                       fontFamily: 'Janna',
